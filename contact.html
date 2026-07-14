@@ -8,15 +8,34 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     
-    <style> body { font-family: 'Poppins', sans-serif; } </style>
+    <style> 
+        body { font-family: 'Poppins', sans-serif; } 
+        .error { border-color: #ef4444 !important; }
+        .success { border-color: #10b981 !important; }
+    </style>
 </head>
 <body class="bg-gray-50">
 
-    <!-- NAVBAR IDENTIQUE À INDEX.HTML -->
+    <!-- NAVBAR -->
     <header class="bg-white shadow-md sticky top-0 z-50">
         <div class="max-w-6xl mx-auto px-6 py-5 flex justify-between items-center">
             <h1 class="text-2xl font-bold text-indigo-700">Portfolio</h1>
-            <nav class="flex gap-8 text-gray-700 font-medium">
+            
+            <nav class="hidden md:flex gap-8 text-gray-700 font-medium">
+                <a href="index.html" class="hover:text-indigo-600 transition">Accueil</a>
+                <a href="about.html" class="hover:text-indigo-600 transition">À propos</a>
+                <a href="contact.html" class="hover:text-indigo-600 transition">Contact</a>
+            </nav>
+
+            <button id="hamburger" class="md:hidden text-gray-700 focus:outline-none">
+                <svg id="hamburger-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-md border-t">
+            <nav class="flex flex-col px-6 py-6 space-y-4 text-gray-700 font-medium">
                 <a href="index.html" class="hover:text-indigo-600 transition">Accueil</a>
                 <a href="about.html" class="hover:text-indigo-600 transition">À propos</a>
                 <a href="contact.html" class="hover:text-indigo-600 transition">Contact</a>
@@ -27,8 +46,45 @@
     <main class="max-w-4xl mx-auto px-6 py-20">
         <section class="text-center">
             <h2 class="text-4xl font-semibold text-gray-800 mb-6">Me Contacter</h2>
-            <p class="text-lg text-gray-600 mb-10">Vous avez une question, une proposition ou simplement envie d'échanger ? N'hésitez pas à me contacter !</p>
+            <p class="text-lg text-gray-600 mb-12">Vous avez une question, une proposition ou simplement envie d'échanger ? N'hésitez pas à me contacter !</p>
             
+            <!-- Formulaire de Contact (Ajouté) -->
+            <div class="bg-white rounded-3xl shadow-xl p-10 mb-16">
+                <form id="contact-form" class="space-y-8">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Nom complet</label>
+                        <input type="text" id="name" 
+                               class="w-full px-6 py-4 border border-gray-300 rounded-2xl focus:outline-none focus:border-indigo-500"
+                               placeholder="Entrez votre nom">
+                        <p id="name-error" class="text-red-500 text-sm mt-1 hidden"></p>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                        <input type="email" id="email" 
+                               class="w-full px-6 py-4 border border-gray-300 rounded-2xl focus:outline-none focus:border-indigo-500"
+                               placeholder="votre@email.com">
+                        <p id="email-error" class="text-red-500 text-sm mt-1 hidden"></p>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Message</label>
+                        <textarea id="message" rows="6"
+                                  class="w-full px-6 py-4 border border-gray-300 rounded-2xl focus:outline-none focus:border-indigo-500 resize-y"
+                                  placeholder="Votre message (minimum 20 caractères)..."></textarea>
+                        <p id="message-error" class="text-red-500 text-sm mt-1 hidden"></p>
+                    </div>
+
+                    <button type="submit"
+                            class="w-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-semibold py-5 rounded-2xl text-lg transition-all">
+                        Envoyer le message
+                    </button>
+
+                    <div id="form-message" class="hidden p-4 rounded-2xl text-center font-medium"></div>
+                </form>
+            </div>
+
+            <!-- Partie originale conservée telle quelle -->
             <div class="bg-white rounded-3xl shadow-xl p-10 max-w-md mx-auto">
                 <p class="text-2xl font-semibold mb-4">📧 Email</p>
                 <p class="text-xl text-indigo-600">akossiwaviadjanou@gmail.com</p>
@@ -43,9 +99,114 @@
         </section>
     </main>
 
-    <footer class="bg-gray-900 text-white py-12 text-center">
-        <p>Projet Fil Rouge - En cours de développement !</p>
+    <!-- FOOTER -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-8">
+            <div>
+                <h3 class="text-xl font-semibold text-indigo-400">Justine Adjanou</h3>
+                <p class="text-gray-400 mt-2">Développeuse Web en formation</p>
+            </div>
+            <div>
+                <h4 class="font-medium mb-3">Navigation</h4>
+                <ul class="space-y-2 text-gray-400">
+                    <li><a href="index.html" class="hover:text-white transition">Accueil</a></li>
+                    <li><a href="about.html" class="hover:text-white transition">À propos</a></li>
+                    <li><a href="contact.html" class="hover:text-white transition">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-medium mb-3">Contact</h4>
+                <p class="text-gray-400">akossiwaviadjanou@gmail.com</p>
+                <p class="text-gray-400">Lomé, Togo</p>
+                <div class="flex gap-4 mt-4">
+                    <a href="https://www.linkedin.com/in/amélie-lanset" target="_blank" class="text-gray-400 hover:text-white">LinkedIn</a>
+                    <a href="https://github.com/Akos228" target="_blank" class="text-gray-400 hover:text-white">GitHub</a>
+                </div>
+            </div>
+        </div>
+        <div class="text-center text-gray-500 text-sm mt-10 border-t border-gray-800 pt-6">
+            © 2026 Projet Fil Rouge - Tous droits réservés
+        </div>
     </footer>
 
+    <!-- JavaScript -->
+    <script>
+        // Hamburger Menu
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const icon = document.getElementById('hamburger-icon');
+
+        hamburger.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            if (mobileMenu.classList.contains('hidden')) {
+                icon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />`;
+            } else {
+                icon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6h12v12" />`;
+            }
+        });
+
+        // ==================== FORMULAIRE DE CONTACT ====================
+        const contactForm = document.getElementById('contact-form');
+        const nameInput = document.getElementById('name');
+        const emailInput = document.getElementById('email');
+        const messageInput = document.getElementById('message');
+        const formMessage = document.getElementById('form-message');
+
+        function showError(input, errorEl, message) {
+            input.classList.add('error');
+            errorEl.textContent = message;
+            errorEl.classList.remove('hidden');
+        }
+
+        function clearError(input, errorEl) {
+            input.classList.remove('error');
+            errorEl.classList.add('hidden');
+        }
+
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            let isValid = true;
+
+            clearError(nameInput, document.getElementById('name-error'));
+            clearError(emailInput, document.getElementById('email-error'));
+            clearError(messageInput, document.getElementById('message-error'));
+            formMessage.classList.add('hidden');
+
+            if (nameInput.value.trim() === '') {
+                showError(nameInput, document.getElementById('name-error'), "Le nom est obligatoire");
+                isValid = false;
+            }
+
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(emailInput.value.trim())) {
+                showError(emailInput, document.getElementById('email-error'), "Veuillez entrer un email valide");
+                isValid = false;
+            }
+
+            if (messageInput.value.trim().length < 20) {
+                showError(messageInput, document.getElementById('message-error'), "Le message doit contenir au moins 20 caractères");
+                isValid = false;
+            }
+
+            if (isValid) {
+                formMessage.classList.remove('hidden');
+                formMessage.classList.add('bg-green-100', 'text-green-700');
+                formMessage.innerHTML = '✅ Message envoyé avec succès ! Je vous répondrai très bientôt.';
+
+                setTimeout(() => {
+                    contactForm.reset();
+                    formMessage.classList.add('hidden');
+                }, 5000);
+            }
+        });
+
+        // Validation en temps réel
+        [nameInput, emailInput, messageInput].forEach(input => {
+            input.addEventListener('input', () => {
+                if (input.value.trim() !== '') input.classList.remove('error');
+            });
+        });
+    </script>
 </body>
 </html>

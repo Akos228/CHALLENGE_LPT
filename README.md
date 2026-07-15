@@ -40,4 +40,8 @@ Le site est disponible en ligne via GitHub Pages :
 
 **Auteur** : Justine Adjanou  
 **Formation** : Développement Web  
-**Date** : Juillet 2026s
+**Date** : Juillet 2026
+
+## 🚀 Comment lancer le projet
+1. Cloner le dépôt
+2. Ouvrir le fichier principal

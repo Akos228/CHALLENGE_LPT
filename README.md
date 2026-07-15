@@ -36,8 +36,11 @@ Le site est disponible en ligne via GitHub Pages :
 - Améliorer l’accessibilité
 - Apprendre React pour la suite
 
----
 
 **Auteur** : Justine Adjanou  
 **Formation** : Développement Web  
 **Date** : Juillet 2026s
+
+## Amélioration
+
+Ce projet est facile à utiliser et constitue une bonne base pour apprendre le développement web. Des améliorations futures pourraient inclure un mode sombre, davantage d'animations et une meilleure accessibilité.

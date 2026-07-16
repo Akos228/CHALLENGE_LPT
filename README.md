@@ -1,8 +1,6 @@
-Je suis Justine ADJANOU, Challenger LPT et voici mon README.md
+Je suis Challenger LPT et voici mon README.md
 
-
-
-# Portfolio - Justine Adjanou
+# Portfolio 
 
 Bienvenue sur mon portfolio personnel. Ce projet est mon "projet fil rouge" réalisé pendant ma formation en développement web.
 
